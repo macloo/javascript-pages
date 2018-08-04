@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> JavaScript Console Work </title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+	<!-- slide-in panel -->
+	<div id="slider" class="menu">
+
+		<!-- menu button for slide-in panel -->
+		<div id="menu-button" class="menu">
+			MENU
+		</div>
+
+		<div id="links-div" class="menu">
+			<h2 class="menu">Menu</h2>
+			<ul id="links-list" class="menu"></ul>
+		</div>
+
+	</div> <!-- end slide-in panel -->
+
+	<section class="seafoam">
+		<h2>JavaScript Console for Beginners</h2>
+		<p>These exercises will familiarize you with writing JavaScript, using the console. Open it now. Google <em>open javascript console</em> if you don’t know how. Use the console to test and practice JavaScript statements, methods, etc.</p>
+		<p><code>console.log('Hello, world!');</code></p>
+		<p><code>console.log(5);</code></p>
+		<p><code>console.log(3 + 6);</code></p>
+		<p><code>console.log('foobar');</code></p>
+		<p><code>console.log(foobar); // error</code></p>
+	</section>
+	<section class="lemoncreme">
+		<h2>JavaScript Variables</h2>
+		<p>A variable can be described as a kind of container. We assign a <em>value</em> to a variable. We can change the value later. A variable is a word. It cannot include spaces. Variable <strong>name</strong> on the left. Variable <strong>value</strong> on the right.</p>
+		<p><code>let fruit = 'apple';</code></p>
+		<p><code>console.log(fruit);</code></p>
+		<p><code>let fruit = 'pear'; // error</code></p>
+		<p><code>fruit = 'pear';</code></p>
+		<p><code>console.log(fruit);</code></p>
+		<p><code>let pears = 5;</code></p>
+		<p><code>let apples = 2;</code></p>
+		<p><code>console.log( apples + pears );</code></p>
+	</section>
+	<section class="lilac">
+		<h2>JavaScript Strings</h2>
+		<p>A string is simply text. It must be enclosed in quotation marks or backticks. Strings can contain any kind of characters, including numbers and punctuation.</p>
+		<p><code>let firstName = 'Harry';</code></p>
+		<p><code>let lastName = 'Potter';</code></p>
+		<p><code>console.log(firstName + lastName); // fix this?</code></p>
+		<p><code>let address = "4 Privet Dr., Little Whinging, Surrey RH10";</code></p>
+		<p><code>console.log(address);</code></p>
+		<p>We can do things to strings:</p>
+		<ul>
+			<li><code>string.length</code></li>
+			<li><code>string.toUpperCase()</code></li>
+			<li><code>string.includes(otherstring)</code></li>
+		</ul>
+	</section>
+	<section class="tomato">
+		<h2>JavaScript Strings (2)</h2>
+		<p><b>Q:</b> What is a backtick and when do we use it?<br>
+			<b>A:</b> Mainly for <em>template literals,</em> which work like this:</p>
+		<p><code>let name = 'Chris';</code></p>
+		<p><code>let faveBook = "The Wind-Up Bird Chronicle";</code></p>
+		<p><code>let faveMovie = 'Wings of Desire';</code></p>
+		<p><code>let result = `${name}'s favorite movie is ${faveMovie} and favorite book is ${faveBook}.`;</code></p>
+		<p><code>console.log(result);</code></p>
+		<p>Without template literals, you'd need to make that string with plus signs:</p>
+		<p><code>result = name + "'s favorite movie is " + faveMovie + " and favorite book is " + faveBook + ".";</code></p>
+		<p>Find the <b>backtick key</b> to the left of the number "1" key on your computer.</p>
+	</section>
+	<section class="sailorblue">
+		<h2>JavaScript Numbers</h2>
+		<p>Numbers are not strings, and you can do math with numbers. As we've seen before, we can also put numbers into variables. The order of operations (PEMDAS) matters.</p>
+		<p><code>2 + 9</code></p>
+		<p><code>20 - 7</code></p>
+		<p><code>12 * 9</code></p>
+		<p><code>100 / 7</code></p>
+		<p>Exponent:<code> 2**8</code></p>
+		<p>Modulus (remainder):<code> 27 % 4</code></p>
+		<p>PEMDAS:<code> 20 + 2 * 10</code></p>
+		<p>PEMDAS:<code> (20 + 2) * 10</code></p>
+	</section>
+	<section class="persimmon">
+		<h2>JavaScript Strings Plus Numbers</h2>
+		<p>We can add strings together (<b>concatenate</b> them). Can we add a string to itself? Can we multiply strings? Can we add strings and numbers?</p>
+		<p><code>let word = "umbrella";</code></p>
+		<p><code>word + word</code></p>
+		<p><code>console.log(word);</code></p>
+		<p><code>word = word + word;</code></p>
+		<p><code>console.log(word);</code></p>
+		<p><code>word + word</code></p>
+		<p><code>5 + "foo"</code></p>
+		<p><code>5 + "5" // no coercion</code></p>
+		<p><code>5 * "5" // coercion</code></p>
+		<p><code>5 * "foo" // NaN</code></p>
+	</section>
+	<section class="leaf">
+		<h2>JavaScript Random Numbers</h2>
+		<p>We often want a random number for use in games, or even for offering new content. You can always look this up when you need it.</p>
+		<p>In the console, use the up-arrow to repeat a line you previously entered.</p>
+		<p><code>Math.random() // several times</code></p>
+		<p><code>Math.random() * 100 // several times</code></p>
+		<p><code>Math.floor(Math.random() * 100) // several times</code></p>
+		<p><code>Math.floor(Math.random() * 6) // 0 through 5</code></p>
+		<p><code>Math.floor(Math.random() * 6) + 1 // 1 through 6</code></p>
+	</section>
+	<section class="blossompink">
+		<h2>JavaScript and Booleans</h2>
+		<p>Boolean values are true or false, nothing else. Here we can test Boolean values with <b>comparison operators.</b></p>
+		<p><code>100 &lt; 10</code></p>
+		<p><code>100 &gt; 10</code></p>
+		<p><code>10 &lt;= 100</code></p>
+		<p><code>10 &gt;= 100</code></p>
+		<p><code>10 == "10" // true</code></p>
+		<p><code>10 === "10" // false</code></p>
+		<p>This is all pretty standard until we get to that triple equals sign (<code>===</code>), which tests for <em>strict equivalence</em> in JavaScript.<p>
+		<p>We can test "not equal" with <code>!==</code> or <code>!=</code> (note that <code>!==</code> is the <em>strict</em> one).<p>
+		<p>Note that the <code>true</code> and <code>false</code> values are all lowercase in JavaScript, and they are NOT strings.<p>
+	</section>
+	<section class="dustyplum">
+		<h2>JavaScript Logical Operators</h2>
+		<p>The logical operators are <strong>and</strong>, <strong>or</strong>, <strong>not</strong>. In JavaScript these are represented by <code>&&</code> (and), <code>||</code> (or), <code>!</code> (not). When we use a logical operator between two statements, the result is a Boolean value (true or false).</p>
+		<div class="truth-table">
+		<h3>and</h3>
+		<table>
+			<tr>
+				<td>true</td>
+				<td>true</td>
+				<td>true</td>
+			</tr>
+			<tr>
+				<td>true</td>
+				<td>false</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>false</td>
+				<td>true</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>false</td>
+				<td>false</td>
+				<td>false</td>
+			</tr>
+		</table>
+		</div>
+		<div class="truth-table">
+		<h3>or</h3>
+		<table>
+			<tr>
+				<td>true</td>
+				<td>true</td>
+				<td>true</td>
+			</tr>
+			<tr>
+				<td>true</td>
+				<td>false</td>
+				<td>true</td>
+			</tr>
+			<tr>
+				<td>false</td>
+				<td>true</td>
+				<td>true</td>
+			</tr>
+			<tr>
+				<td>false</td>
+				<td>false</td>
+				<td>false</td>
+			</tr>
+		</table>
+		</div>
+		<p class="clearfix"><code>// false AND true: returns false</code><br>
+			<code>(100 &lt; 10) && (1 &gt; 0)</code></p>
+		<p class="clearfix"><code>// false OR true: returns true</code><br>
+				<code>(100 &lt; 10) || (1 &gt; 0)</code></p>
+	</section>
+	<section class="dovegray">
+		<h2>JavaScript and “Not”</h2>
+		<p>One of the three logical operators is <strong>not</strong> (represented by <code>!</code>). Let's see how <strong>not</strong> works with a variable. We will change the <em>value</em> several times.</p>
+		<p><code>let foobar; // a new variable with no assigned value</code></p>
+		<p><code>!foobar; // true</code></p>
+		<p><code>foobar = 0;</code></p>
+		<p><code>!foobar; // true</code></p>
+		<p><code>foobar = "something";</code></p>
+		<p><code>!foobar; // false</code></p>
+		<p><code>foobar = null;</code></p>
+		<p><code>!foobar; // true</code></p>
+		<p><code>foobar = undefined;</code></p>
+		<p><code>!foobar; // true</code></p>
+	</section>
+	<section class="lemonpeel">
+		<h2>JavaScript Data Types</h2>
+		<p>In the previous example, you saw two new <strong>data types</strong>: Null and Undefined. (The others are String, Number, and Boolean.<sup>*</sup>) Unlike the other JavaScript data types, each of these has only one possible value: <code>null</code> for Null and <code>undefined</code> for Undefined.</p>
+		<p><code>let savings; // a new variable with no assigned value</code></p>
+		<p><code>console.log(savings);</code></p>
+		<p><code>savings === undefined; // true</code></p>
+		<p><code>savings = null;</code></p>
+		<p><code>console.log(savings);</code></p>
+		<p><code>savings === undefined; // false</code></p>
+		<p><code>typeof savings;</code></p>
+		<p><sup>*</sup> Actually these are called <em>primitive</em> data types, and there is one more: Symbol.</p>
+	</section>
+	<section class="greenmist">
+		<h2>JavaScript if&ndash;else if&ndash;else</h2>
+		<p><strong>if-statements</strong> allow us to create branching paths in code. If the first thing is true, the first <strong>code block</strong> executes. If the second thing is true, the first code block is <em>ignored,</em> and the second code block executes. And so on. if-statements are referred to as <em>conditionals</em> or <em>control flow</em>. We can have one, many, or no <code>else if</code> statements between <code>if</code> and <code>else</code>.</p>
+		<pre>if (someCondition) {
+   // instructions;
+} else if (anotherCondition) {
+   // different instructions;
+} else {
+   // other instructions;
+}
+</pre>
+		<p>We will use <strong>Repl.it</strong> (<a href="https://repl.it/" target="_blank">https://repl.it/</a>) to work on if-statements.</p>
+		<ul>
+			<li><a href="https://repl.it/@macloo/First-if-statements" target="_blank">First if-statements</a></li>
+			<li><a href="https://repl.it/@macloo/Basic-control-flow-JavaScript" target="_blank">Basic control flow</a></li>
+		</ul>
+	</section>
+	<section class="seafoam">
+		<h2>JavaScript and Truthiness</h2>
+		<p>A statement in JavaScript is considered true <em>unless</em> its value is one of these six:</p>
+		<ul>
+			<li><code>false</code></li>
+			<li><code>0 </code>or<code> -0</code></li>
+			<li><code>"" </code>or<code> '' </code>(empty strings)</li>
+			<li><code>null</code></li>
+			<li><code>undefined</code></li>
+			<li><code>NaN </code>(Not a Number)</li>
+		</ul>
+		<p>Test it like this:</p>
+		<pre>let test = null;
+if (test) {
+  console.log("It is true.");
+} else {
+  console.log("It is NOT true.");
+}
+</pre>
+	<p>Live example: <a href="https://repl.it/@macloo/Truthiness-in-JavaScript" target="_blank">Truthiness</a></p>
+	</section>
+	<section class="lemoncreme">
+		<h2>JavaScript’s Switch Statement</h2>
+		<p>This is useful when you need to test a large number of possible conditions &mdash; instead of writing "else if" many, many times.</p>
+		<p>A switch statement requires a <strong>variable.</strong> The value of the variable will have been assigned <em>outside</em> the switch statement.</p>
+		<p><code>switch (someVariable) { }</code></p>
+		<p>For each possible <em>value</em> the variable might have, provide the value, then write all the instructions, and end with <code>break;</code> (required).</p>
+		<pre>case "wizard":
+   console.log("Only a Wizard can cast spells.");
+   // as many statements as needed
+   break;</pre>
+		<p>Finally, provide a default condition at the end of the switch statement, in case the value given was not valid:</p>
+		<pre>default:
+   console.log("You must choose a type.");
+   break;</pre>
+		<p>Live example: <a href="https://repl.it/@macloo/Switch-statement-basic" target="_blank">Switch statement - basic</a></p>
+	</section>
+	<section class="lilac">
+		<h2>JavaScript Arrays</h2>
+		<p>An <strong>array</strong> is essentially a list of values, or variables, or both together.</p>
+		<p><code>let shopping = ['bread', 'cheese', 'apples'];</code></p>
+		<p>The items in an array are <em>ordered,</em> which means we can reliably use them by referring to their position in the array. Note that the <em>first</em> position has an index of 0.</p>
+		<p><code>console.log(shopping[0]);</code></p>
+		<p><code>console.log(shopping[1]);</code></p>
+		<p>This position number is called an <strong>index.</strong> We can change the value of an item at a particular index:</p>
+		<p><code>shopping[2] = 'oranges';</code></p>
+		<p><code>console.log(shopping);</code></p>
+	</section>
+	<section class="tomato">
+		<h2>JavaScript Arrays (2)</h2>
+		<p>An array has a <code>length</code> property. Arrays also have a lot of useful methods, which you can look up as you need them. Two of the most comonly used are shown below.</p>
+		<p><code>let shopping = ['milk', 'eggs', 'bread'];</code></p>
+		<p><code>let total = shopping.length;</code></p>
+		<p><code>console.log(`Please buy ${total} items.`);</code></p>
+		<p><code>shopping.push('peanut butter');</code></p>
+		<p><code>console.log(shopping);</code></p>
+		<p><code>let removed = shopping.pop();</code></p>
+		<p><code>console.log(shopping);</code></p>
+		<p><code>console.log(removed);</code></p>
+		<p>Live example: <a href="https://repl.it/@macloo/Array-basics" target="_blank">Array basics</a></p>
+	</section>
+	<section class="sailorblue">
+		<h2>JavaScript Loops</h2>
+		<p>A loop allows us to easily repeat the same code again and again. In some cases we know exactly how many times we want to repeat the code. Then we use a <strong>for-loop.</strong> If we <em>don't know</em> how many times it will be necessary to repeat the code, we use a <strong>while-loop.</strong></p>
+		<p>Here is a basic for-loop:</p>
+		<pre>for (let i = 0; i < someValue; i++) {
+   // instructions;
+}</pre>
+		<p>The three parts in parentheses are the KEY to how the loop runs:</p>
+		<ul>
+			<li><strong>Start condition:</strong> Where does the count begin? With <code>let i = 0;</code> it begins at 0.</li>
+			<li><strong>Stop condition:</strong> When does the loop stop running? With <code>i &lt; someValue;</code> it stops when <code>i</code> is not less than <code>someValue</code>, whatever that value might be.</li>
+			<li><strong>Iterator:</strong> Each time the loop runs, this happens. Often what happens is 1 is added to <code>i</code> &mdash; that's what <code>i++</code> means.</li>
+		</ul>
+		 <p>Live example: <a href="https://repl.it/@macloo/for-loop-Examples" target="_blank">4 for-loops</a></p>
+	</section>
+	<section class="persimmon">
+		<h2>Increment and Decrement</h2>
+		<p>If you need to add 1 to a variable, or subtract 1 from a variable, JavaScript has a nifty shorthand for you to use:</p>
+		<ul class="indented">
+			<li><code>x = x + 1</code></li>
+			<li><code>x++</code></li>
+			<li><code>x = x - 1</code></li>
+			<li><code>x--</code></li>
+		</ul>
+		<p>If you need to increase the variable's value by more than 1, or decrease it by more than 1, there is a slightly longer shorthand:</p>
+		<ul class="indented">
+			<li><code>x = x + 5</code></li>
+			<li><code>x += 5</code></li>
+			<li><code>x = x - 10</code></li>
+			<li><code>x -= 10</code></li>
+		</ul>
+		<p><strong>Note:</strong> This does not work with a variable that was initialized with <code>const</code> &mdash; you must use <code>let</code> to allow the value to be changed.</p>
+	</section>
+	<section class="leaf">
+		<h2>JavaScript Loops (2)</h2>
+		<p>If we don't know how many times it will be necessary to repeat the code, we use a <strong>while-loop.</strong> When we use a while-loop, we must be sure the loop will be forced to stop at some point, or else the loop will run forever (an infinite loop) and crash the browser.</p>
+		<p>A while-loop starts with a condition to be tested. If the condition is false at the start, the loop will never run at all.<sup>*</sup></p>
+		<p>To prevent an infinite loop, eventually the tested condition must become false.</p>
+		<p><code>while (someCondition) { // doThings; }</code></p>
+		<p>Live example: <a href="https://repl.it/@macloo/while-loop-Example" target="_blank">while-loop</a></p>
+		<p><sup>*</sup> If you need the loop to run once no matter what (even with a false condition), see the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while" target="_blank">do...while statement</a>. If there's no chance the starting condition would be false, then <em>don't</em> use a do...while-loop.</p>
+	</section>
+	<section class="blossompink">
+		<h2>JavaScript’s .forEach() Method</h2>
+		<p>It's perfecty fine to use a regular for-loop to loop over an array. There's also another way to do it, and it <em>does not include</em> <code>(let i = 0; i < someValue; i++)</code>. Here it is:</p>
+		<pre>arrayName.forEach(function(item) {
+    // doThings;
+});</pre>
+		<p>The code you write between the curly braces will be run on every item in the array. You use <code>item</code> (or whatever variable name you put in the function) to stand for each array item. For example:</p>
+		<p><code>console.log(item);</code></p>
+		<p>There's no way to halt the loop in this case (you <em>can</em> halt a regular for-loop).</p>
+		<p>Live example: <a href="https://repl.it/@macloo/forEach-Example" target="_blank">.forEach()</a></p>
+		<p>We haven't covered functions yet &mdash; they are next! What we have here is an <strong>anonymous function</strong> (it has no name) fully enclosed in the parentheses of <code>forEach()</code>.</p>
+	</section>
+	<section class="dustyplum">
+		<h2>JavaScript Functions</h2>
+		<p>A function is a bundle of code instructions. Usually a function has a name. If it doesn't, it is called an anonymous function.</p>
+		<p>By bundling code into short(ish) functions, we make it modular, easier to debug, easier for others to understand and maintain, and easier to reuse and repurpose in future projects.</p>
+		<p>JavaScript provides several ways to write a function. Here are three:</p>
+		<p><code>function someName(a, b) { //instructions; }</code></p>
+		<p><code>const someName = function (a, b) { //instructions; };</code></p>
+		<p><code>const someName = (a, b) => { //instructions; };</code></p>
+		<p>In all cases, the instructions (code) would be exactly the same. We cause a function to <em>run</em> by <em>calling</em> it, like this:</p>
+		<p><code>someName(value1, value2);</code></p>
+		<p>Live example: <a href="https://repl.it/@macloo/Function-Examples-1" target="_blank">Function Examples 1</a></p>
+	</section>
+	<section class="dovegray">
+		<h2>JavaScript Functions (2)</h2>
+		<p><code>function someName(a, b) { //instructions; }</code></p>
+		<p><code>const someName = function (a, b) { //instructions; };</code></p>
+		<p>The <code>a</code> and <code>b</code> in parentheses are <strong>parameters.</strong></p>
+		<p>You can think of them as variables that exist only inside the function. A function may have no parameters, or one, or many. Whatever names you give to the parameters when you <em>define</em> the function will be used inside the curly braces &mdash; the code block &mdash; the instructions.</p>
+		<ul>
+			<li>If we <em>call</em> this function with <code>someName(5, 18);</code> we are giving <code>a</code> and <code>b</code> the <em>values</em> 5 and 18 (both numbers).</li>
+			<li>If we <em>call</em> this function with <code>someName('orange', 'blue');</code> we are giving <code>a</code> and <code>b</code> the <em>values</em> 'orange' and 'blue' (strings).</li>
+			<li>These values are called <strong>arguments.</strong></li>
+		</ul>
+		<p>Note that <strong>if no parameters are given,</strong> empty parentheses are <em>required</em> &mdash; with no space between them.</p>
+	</section>
+	<section class="lemonpeel">
+		<h2>JavaScript Functions (3)</h2>
+		<p>The <strong>returned value</strong> from a function can be used elsewhere in the script &mdash; <em>outside</em> the function.</p>
+		<p>Some functions do not return anything. A function that rewrites the contents of an HTML file, for example, doesn't need to return anything. In <cite>Eloquent JavaScript</cite>, author Marijn Haverbeke says, "Showing a dialog box or writing text to the screen is a <em>side effect.</em> A lot of functions are useful because of the side effects they produce."</p>
+		<p>When we want a function to return a value, we write a <code>return</code> statement inside the function:</p>
+		<p><code>return someValue;</code></p>
+		<p>The value that is returned <em>may</em> come from an evaluated statement:</p>
+		<p><code>return someValue + 10;</code></p>
+		<p>We can "catch" the returned value in a variable:</p>
+		<p><code>let answer = someFunFunction(x, y);</code></p>
+	</section>
+	<section class="greenmist">
+		<h2>JavaScript Functions (4)</h2>
+		<p>Let's review basic facts about functions.</p>
+		<ul>
+			<li>A function usually has a name. If it does, you can <em>make the function run</em> by using that name.</li>
+			<li>A function always has at least one line of instructions. The instructions make something happen.</li>
+			<li>A function may have one or more parameters, which will receive values when the function is called.</li>
+			<li>A function may return a value, but this is not required.</li>
+			<li>Some functions do not have names. These are called anonymous functions.</li>
+			<li>Some functions have no parameters.</li>
+			<li>Some functions do not return a value.</li>
+			<li>A function is a bundle of code that has a purpose.</li>
+		</ul>
+		<p>When you are writing a function, think about its purpose and name it accordingly. For example, if I want to calculate the gas mileage of a car, I might call the function <code>getGasMileage</code>.</p>
+	</section>
+	<section class="seafoam">
+		<h2>JavaScript Function Exercise</h2>
+		<p>The best way to learn to code is to practice. To really understand functions, you should write a lot of short functions to solve short problems.</p>
+		<p>This is a typical, basic function exercise:</p>
+		<ol>
+			<li>Write a function that searches in a string for a shorter string. (You can Google <em>string method includes</em>.)</li>
+			<li>The function takes two arguments: a string and a shorter string.</li>
+			<li>The function returns true or false.</li>
+		</ol>
+		<p>Building on the first function exercise, try this one next:</p>
+		<ol>
+			<li>Write a function that searches every item in a list for a given string.</li>
+			<li>The function takes two arguments: an array and a string to search for.</li>
+			<li>Return a new array of all items that contain that string.</li>
+		</ol>
+		<p>Live example: <a href="https://repl.it/@macloo/JavaScript-Function-Exercise" target="_blank">JavaScript Function Exercise</a></p>
+		<p>More function exercises: <a href="https://www.w3resource.com/javascript-exercises/javascript-functions-exercises.php" target="_blank">Exercises, Practice, Solution</a></p>
+	</section>
+
+	<!-- pop-up message for final section -->
+	<div id="message">
+		<p>This is the final section.</p>
+	</div>
+
+<script src="scripts/first.js"></script>
+</body>
+</html>

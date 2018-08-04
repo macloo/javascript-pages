@@ -1,0 +1,225 @@
+/* backgrounds https://bl.ocks.org/mbostock/5577023 */
+.seafoam{background:#8dd3c7}.lemoncreme{background:#ffffb3}.lilac{background:#bebada}.tomato{background:#fb8072}.sailorblue{background:#80b1d3}.persimmon{background:#fdb462}.leaf{background:#b3de69}.blossompink{background:#fccde5}.dustyplum{background:#bc80bd}.dovegray{background:#a0c9d3}.lemonpeel{background:#ffed6f}.greenmist{background:#ccebc5}
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+* {
+    box-sizing: inherit;
+}
+body {
+    font-family: sans-serif;
+    color: #333;
+    background: #666;
+    margin: 0;
+    max-width: 800px;
+}
+body:hover {
+    cursor: pointer;
+}
+h1, h2, h3 {
+    margin: 0;
+}
+section {
+    margin: 0;
+    padding: 2rem;
+    padding-left: 4rem;
+    overflow: scroll;
+}
+section h1 {
+    font-size: 2.5rem;
+}
+section h2 {
+    font-size: 2rem;
+}
+section h3 {
+    font-size: 1.8rem;
+}
+section p, li, td {
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+code, pre {
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+pre {
+    line-height: normal;
+    overflow: scroll;
+}
+/* superscript */
+sup {
+    font-size: 1.4rem;
+    position: relative;
+    top: .5rem;
+    line-height: .9rem;
+}
+/* back button - not a button */
+.back {
+    font-weight: normal;
+    font-size: .9rem;
+    padding: .7rem;
+    background: #fff;
+    border: 2px solid #999;
+    border-radius: 20px;
+    float: right;
+}
+.indented {
+    list-style: none;
+    padding-left: 4rem;
+}
+.clearfix {
+    clear: both;
+}
+/* slide-out menu */
+div#slider {
+    position: absolute;
+    top: 0;
+    left: -420px;
+    z-index: 3;
+    width: 420px;
+    height: 100vh;
+    padding: 2rem 3rem;
+    background: #f4efd2;
+    border-right: 1px solid #b5ae8b;
+}
+#links-div {
+    position: relative;
+    top: -50px;
+}
+#links-list li {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+#menu-button {
+    position: relative;
+    top: 200px;
+    left: 343px;
+    width: 100px;
+    height: 46px;
+    font-weight: normal;
+    font-size: .9rem;
+    padding: .7rem;
+    background: #f4efd2;
+    border: 2px solid #b5ae8b;
+    border-bottom: 2px solid #f4efd2;
+    border-radius: 20px 20px 0 0;
+    letter-spacing: .15em;
+    text-align: center;
+    transform: rotate(90deg);
+    z-index: 4;
+    overflow: hidden;
+}
+/* next 4 rules make the sliding happen - with JavaScript assist */
+.slide-to-view {
+    animation-timing-function: ease-out;
+    animation-duration: .5s;
+    animation-name: slidein;
+}
+@keyframes slidein {
+    from { left: -420px; }
+    to { left: 0; }
+}
+.slide-out-of-view {
+    animation-timing-function: ease-in;
+    animation-duration: .5s;
+    animation-name: slideout;
+}
+@keyframes slideout {
+    from { left: 0; }
+    to { left: -420px; }
+}
+/* pop-up message for final section
+    will be unhidden with JS
+    */
+div#message {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 50%;
+    padding: 2rem 2rem;
+    background: #f4efd2;
+    border: 1px solid #b5ae8b;
+    text-align: center;
+    box-shadow: 5px 5px 10px #333;
+    display: none;
+}
+/* table styles */
+.truth-table {
+    float: left;
+    padding: 0 2rem 3rem 0;
+}
+table {
+    background: #fff;
+    margin: 0;
+    margin-top: .5rem;
+    border-collapse: collapse;
+}
+td {
+    padding: .5rem 1rem;
+    border-bottom: 1px solid #999;
+}
+/* third column is pink */
+td:nth-child(3) {
+    background: #fccde5;
+}
+/* pseudo classes */
+a {
+    color: #59a1d1;
+}
+a:hover {
+    color: #fb8072;
+    text-decoration: none;
+}
+.tomato a, .dustyplum a {
+    color: #ffd1cc;
+}
+.tomato a:hover, .dustyplum a:hover {
+    color: #703c36;
+    text-decoration: none;
+}
+.sailorblue a {
+    color: #0c87d3;
+}
+.sailorblue a:hover {
+    color: #9b3d33;
+    text-decoration: none;
+}
+/* media queries */
+@media screen and (max-width: 450px) {
+    section {
+        padding: 4rem 1rem 1rem 2rem;
+    }
+    .back {
+        display: none;
+    }
+    div#slider {
+        top: -100vh;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        border: 0;
+        border-bottom: 1px solid #b5ae8b;
+    }
+    #menu-button {
+        top: calc(100vh - 34px);
+        left: 180px;
+        border: 2px solid #b5ae8b;
+        border-top: 2px solid #f4efd2;
+        border-radius: 0 0 20px 20px;
+        transform: rotate(0deg);
+    }
+    #links-list li {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    /* menu now comes down from top*/
+    @keyframes slidein {
+        from { top: -100vh; }
+        to { top: 0; }
+    }
+    @keyframes slideout {
+        from { top: 0; }
+        to { top: -100vh; }
+    }
+}

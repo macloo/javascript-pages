@@ -1,0 +1,270 @@
+# Script for Function Exercise Video
+
+The typical exercises for learning functions are often very SHORT.
+
+The reason to do these exercises is to build up "muscle memory" -- and the "MUSCLE" is your brain. Getting used to _writing_functions_ will help you solve harder code problems in the future.
+
+So here's our first JavaScript function problem:
+
+1. Write a function that searches in a string for a shorter string.
+2. The function takes two arguments: a string and a shorter string.
+3. The function returns true or false.
+
+We know we'll need a function, so we can write a "scaffold" like this:
+
+function ___() {
+
+}
+
+Now, what should we name this function?
+
+function findString() {
+
+}
+
+We need two PARAMETERS - the instructions say it takes two arguments, so that means we've got to have two parameters. We can use abstract variable names like a and b --
+
+function findString(a, b) {
+
+}
+
+-- and keep in mind that a will be the longer string and b will be the shorter string.
+
+If we search for a string METHOD that searches for a string inside another string, we'll find includes() --
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+
+-- so we know we're going to have THAT inside this function. Let's put it there:
+
+function findString(a, b) {
+
+    a.includes(b)
+
+}
+
+Then we look at the problem instructions again and consider the PURPOSE, or the OUTCOME, of this function.
+
+Instruction 3 says: The function returns true or false.
+
+So we have to make sure the function does that. As a beginner, you might come up with this solution:
+
+function findString(a, b) {
+  if (a.includes(b)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+And that's okay. Test it and see. Oh -- how can you test it? You need to CALL the function with TWO VALUES as arguments, and those two values must be a string and a shorter string -- in that order.
+
+So we can try these in the console:
+
+findString('applesauce', 'pear');
+
+findString('pear and apricot tart', 'pear');
+
+Okay, that works. The first returns false and the second returns true, so -- good job!
+
+Now, is it possible to improve that function?
+
+Think about what would be returned if we simply put this into the console:
+
+'mashup'.includes('ash');
+
+It would return true.
+
+So our function could actually be a lot shorter:
+
+function findString(a, b) {
+    return a.includes(b);
+}
+
+This returns the same true and false values for the statements we ran earlier:
+
+findString('applesauce', 'pear');
+
+findString('pear and apricot tart', 'pear');
+
+
+So you might ask yourself WHY you would ever write a function that is so short and so basic?
+
+The answer is PRACTICE. Figuring out _how_to_make_it_shorter_ is a valuable learning experience.
+
+## Part 2
+
+Often we write small functions to be called inside other functions. This makes our code MODULAR -- easier to reuse and easier to debug.
+
+Here's our second JavaScript function problem:
+
+1. Write a function that searches every item in a list for a given string.
+2. The function takes two arguments: an array and a string to search for.
+3. Return a new list of all items that contain that string.
+
+So first, we need an array:
+
+const recipes = ['pineapple upside-down cake', 'peach cobbler', 'strawberry shortcake', 'plum pudding',  'applesauce', 'pear and apricot tart'];
+
+Don't be thrown off because instruction 1 said "list." Is there anything else that would work as a list? No. So we use an array.
+
+Once again, we can "scaffold" a function like this:
+
+function ___() {
+
+}
+
+Then, name the function sensibly, descriptively:
+
+function findStringInArray() {
+
+}
+
+Instruction 2 says this function "takes two arguments: an array and a string to search for." That means I have to name TWO PARAMETERS. This time, I'm going to be more explicit than just a and b, because I might find it easier to keep in mind WHICH variable is my array:
+
+function findStringInArray(list, myString) {
+
+}
+
+My instructions are to write a function that "searches every item in a list for a given string." Any time we're going to do something in a list, it's safe to bet that we can use a loop. A loop lets us look at each item in the array, one by one. So let's set up a loop structure inside the function:
+
+function findStringInArray(list, myString) {
+
+    for (let i = 0; i < list.length; i++) {
+
+    }
+
+}
+
+Often beginners are thrown off by this. They think: Wait, why does it say "list.length"? My array is named "recipes."
+
+The two PARAMETERS -- list and myString -- are variable names. They will be used only inside the function. When you CALL this function, you can put in ANY array as the first ARGUMENT. You will ASSIGN the array "recipes" to the parameter "list," and then every use of "list" inside the function is a reference to the array named "recipes."
+
+Getting comfortable with the use of parameters is important, and doing function exercises will help you with that.
+
+Now we need to fill in the loop instructions. What do we need to do with each array item? We need to check whether it contains a given string. So we could write:
+
+function findStringInArray(list, myString) {
+
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].includes(myString)) {
+          return true;
+        } else {
+          return false;
+        }
+    }
+
+}
+
+BUT WAIT! We already HAVE a function that does exactly that. It was the first function we wrote in this exercise. So instead of writing the same code AGAIN, we can simply CALL THAT FUNCTION in our loop.
+
+function findStringInArray(list, myString) {
+
+    for (let i = 0; i < list.length; i++) {
+        findString(list[i], myString);
+    }
+
+}
+
+Remember that the value of i changes each time the loop runs, because of i++. So we will execute the function named "findString" on EACH ITEM in the "recipes" array.
+
+Instruction 3 tells us we have to "return a new list of all items that contain that string." This is another thing that might make you feel stuck, as a beginner. "A new array"? Where do we get a new array?
+
+The answer is, we MAKE one:
+
+function findStringInArray(list, myString) {
+
+    const selectedRecipes = [];
+
+    for (let i = 0; i < list.length; i++) {
+        findString(list[i], myString);
+    }
+
+}
+
+Next, figure out how we get only the items from "recipes" that MATCH THE STRING and put them into that new array named "selectedRecipes."
+
+We need to push, right? Push will put a new item into the array. But WHERE in this code do we push?
+
+This is the problem-solving you need to practice.
+
+Where do we push?
+We have to be sure the item from "recipes" has the searched string inside it.
+-- That means findString(list[i], myString); would return true.
+If it returns false, we don't want that item.
+-- Oh look -- I just said "IF."
+
+function findStringInArray(list, myString) {
+
+    const selectedRecipes = [];
+
+    for (let i = 0; i < list.length; i++) {
+        if
+        findString(list[i], myString);
+        push
+    }
+
+}
+
+Sometimes you start just like that. Then you fill it out to be correct JavaScript code.
+
+function findStringInArray(list, myString) {
+
+    const selectedRecipes = [];
+
+    for (let i = 0; i < list.length; i++) {
+        if ( findString(list[i], myString) ) {
+            selectedRecipes.push(list[i]);
+        }
+
+    }
+
+}
+
+And here you might feel a desire to add an else statement. But do you need one?
+
+In fact, you don't need an else statement here. You have written the code that adds the desired item to the new array, "selectedRecipes" -- and the loop does not need to do ANYTHING else.
+
+This is another thing beginners can get hung up on. You DON'T HAVE TO ADD EVERY POSSIBLE THING to a loop or a conditional or a function.
+
+Back to the instructions. have we completed them yet? No, because we are told to RETURN something. What do we return? "A new list of all items that contain that string."
+
+Well -- we already have that new list. And we have ensured that every suitable item will be in that list.
+
+But WHEN will all the suitable items will be in the list? AFTER the loop is FINISHED.
+
+So make sure to write this return statement OUTSIDE the loop, but still nside the function:
+
+function findStringInArray(list, myString) {
+  const selectedRecipes = [];
+  for (let i = 0; i < list.length; i++) {
+    if ( findString(list[i], myString) ) {
+      selectedRecipes.push(list[i])
+    }
+  }
+  return selectedRecipes;
+}
+
+And BE CAREFUL about those curly braces!
+You have one set that surrounds the entire function.
+You have another pair of curly braces to surround the LOOP.
+You have a THIRD set of curly braces to surround the if-statement.
+
+Keeping these pairs of curly braces intact and correct is one of the huge annoyances of writing JavaScript code. You just need to PRACTICE, and you WILL get used to it.
+
+So now our second function should be complete. To run it, we have to CALL the function AND give it the ARGUMENTS we want it to use when it runs:
+
+findStringInArray(recipes, 'cake');
+
+Remember that our array is named "recipes." The string "cake" could be any string at all, or it could be a VARIABLE that contains a string.
+
+Because we often want to USE what the function returns, it's good to know how to CATCH that returned value in a new variable:
+
+let result = findStringInArray(recipes, 'cake');
+
+After we've got the value, we can use it by invoking that variable:
+
+console.log(result);
+
+I hope this demonstration helps you start solving simple JavaScript function problems on your own -- because that's really the BEST WAY to learn how to use functions.
+
+Search for collections of JavaScript function problems -- there are many available online!
